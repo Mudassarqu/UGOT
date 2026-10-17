@@ -1,0 +1,176 @@
+<!DOCTYPE html><html lang="en"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Topic 04 · Joint Rescue | Criterion B</title><link rel="stylesheet" href="../assets/site.css"></head><body>
+<div class="topbar"><a class="brand" href="../index.html">🤖 AIA · UGOT</a><a class="tab" href="../index.html">Home</a><a class="tab" href="../criteria-a.html">Criteria A</a><a class="tab active" href="../criteria-b.html">Criteria B</a><a class="tab" href="../criteria-c.html">Criteria C</a><a class="tab" href="../criteria-d.html">Criteria D</a></div>
+<header class="hero">
+  <div class="crumbs"><a href="../index.html">Home</a> › <a href="../criteria-b.html">Criterion B</a> › Topic 04</div>
+  <span class="tag">AIA · Grade 10 Digital Design · UGOT AI Robotics</span>
+  <h1>🦾 Criterion B — Topic 04: Joint Rescue</h1>
+  <p><strong>UGOT kit used:</strong> Gripper / servo arm + Time-of-Flight (TOF) sensor</p>
+  <p>A worked exemplar for B1 Design Specification, B2 Design Ideas, B3 Chosen Design and B4 Detailed Plans. Use it as a model for your own e-portfolio.</p>
+</header>
+<nav class="toc">
+  <a href="#brief">Design Brief</a><a href="#b1">B1 Specification</a><a href="#b2">B2 Ideas</a><a href="#b3">B3 Chosen Design</a>
+  <a href="#b4">B4 Plans</a><a href="#integration">Integration</a><a href="#downloads">Downloads</a><a href="#worksheet">Worksheet</a><a href="#quiz">Quiz</a>
+</nav>
+<div class="loginbar" id="loginbar">
+  <span>👋 Enter your name and class to save your challenge answers and quiz scores to the class Google Sheet:</span>
+  <input id="loginName" type="text" placeholder="Your name" autocomplete="off">
+  <input id="loginClass" type="text" placeholder="Class (e.g. 10B)" autocomplete="off">
+  <button onclick="doLogin()">Start / Log in</button></div>
+<main>
+<div class="ref-layout">
+<aside class="ref-side"><img src="../img/ugot_parts_reference.png" alt="Real UGOT kit parts"><div class="cap">The real UGOT kit parts you are building with</div></aside>
+<div>
+
+<section id="brief"><h2>Design Brief</h2><p class="sub">Context that frames the whole Criterion B response for this lesson.</p>
+<div class="card">
+<p><strong>Problem context (real world &amp; UAE link):</strong> After a building collapse or storm-debris incident, light rubble must be moved by hand-sized tools. A gripper arm with a distance sensor lets a small robot reach, measure and lift without putting a person at risk.</p>
+<p><strong>Design task:</strong> Design a physical, 3D-printable / laser-cut module that integrates the UGOT <em>Gripper / servo arm + Time-of-Flight (TOF) sensor</em> and bolts to the UGOT chassis. It must be buildable by a Grade 10 student in the Product Design lab (MDF, wood, 3D printing).</p>
+<p><strong>User:</strong> a 14–16 year-old MYP student assembling, testing and demonstrating the robot in class and at the AIA STEM showcase.</p>
+</div></section>
+
+<section id="b1"><h2>B1 · Design Specification</h2>
+<p class="sub">Each success criterion is described and justified using ACCESSFM. Rows marked <span class="measurable">&nbsp;&nbsp;&nbsp;&nbsp;</span> are <strong>measurable</strong>. Size, mass and cost limits are calculated from the chosen 3D model.</p>
+<div class="card" style="overflow-x:auto;"><table>
+<tr><th style="width:12%">Specification</th><th style="width:7%">#</th><th style="width:42%">Success criterion</th><th>Justification</th></tr>
+<tr><td rowspan="2"><strong>Aesthetics</strong></td><td>1.1</td>
+<td>Colour scheme of charcoal grey with safety-orange on the claw and sensor pod.</td><td>A high-visibility, consistent palette makes the tool instantly recognisable and looks professional at the AIA STEM showcase.</td></tr>
+<tr><td>1.2</td>
+<td>Smooth, rounded external edges (fillet ≥ 2 mm) with no visible fasteners on the outer shell.</td><td>Rounded edges read as safe to handle and avoid snagging.</td></tr>
+<tr><td rowspan="2"><strong>Cost</strong></td><td>2.1</td>
+<td class="measurable">Material + fabrication cost per unit ≤ <strong>AED 70</strong>.</td><td>Based on PETG filament at about AED 0.12/g, MDF offcuts and AED 14 of hardware; keeps a class set affordable.</td></tr>
+<tr><td>2.2</td>
+<td>Re-uses UGOT kit servos, sensors and fasteners; no proprietary parts.</td><td>Avoids extra purchase orders and keeps the design compatible with kits the school already owns.</td></tr>
+<tr><td rowspan="2"><strong>Customer</strong></td><td>3.1</td>
+<td>Bolts to the UGOT chassis with M3 fasteners through the mount plate using only the lab toolkit (check hole spacing against your own kit).</td><td>Every group's UGOT chassis must be able to accept the part.</td></tr>
+<tr><td>3.2</td>
+<td>Assembles in one lesson (≤ 70 min) by a pair of Grade 10 students.</td><td>Matches the AIA single-period lesson structure for this unit.</td></tr>
+<tr><td rowspan="2"><strong>Environment</strong></td><td>4.1</td>
+<td class="measurable">At least <strong>80%</strong> of the structural material is recyclable PETG or reclaimed MDF offcuts.</td><td>PETG is recyclable and MDF offcuts come from the lab scrap bin (6 R's: Reduce, Reuse).</td></tr>
+<tr><td>4.2</td>
+<td class="measurable">Printed + cut mass ≤ <strong>250 g</strong>.</td><td>Lower mass means less filament, less print energy and less load on the UGOT motors.</td></tr>
+<tr><td rowspan="2"><strong>Size</strong></td><td>5.1</td>
+<td class="measurable">Overall envelope ≤ <strong>320 × 80 × 80 mm</strong> (L × W × H).</td><td>Keeps the module compact enough to mount on the UGOT chassis without hitting its wheels or the floor.</td></tr>
+<tr><td>5.2</td>
+<td>Every printed part fits on a 200 × 200 mm print bed; every cut part fits a 300 × 300 mm laser bed.</td><td>Matches the lab machinery available to students.</td></tr>
+<tr><td rowspan="2"><strong>Safety</strong></td><td>6.1</td>
+<td>Fingertip pinch gap stays at least <strong>6 mm</strong> when fully closed.</td><td>Reduces the chance of injury to the student building, testing and demonstrating it.</td></tr>
+<tr><td>6.2</td>
+<td>No exposed sharp corners: all edges filleted or sanded; sensor lens recessed about 2 mm to avoid impact cracks.</td><td>Standard safe-handling requirement for a student-built robotic part.</td></tr>
+<tr><td rowspan="4"><strong>Function</strong></td><td>7.1</td>
+<td class="measurable">Grips and lifts objects of <strong>20–150 g</strong> at up to <strong>300 mm</strong> reach.</td><td>Directly measures whether the design solves the problem in the scenario above.</td></tr>
+<tr><td>7.2</td>
+<td class="measurable">TOF sensor sees obstacles at <strong>20–400 mm</strong> (design target; verify against the UGOT datasheet).</td><td>Sensor range figures are design targets; the housing must never block or shorten them.</td></tr>
+<tr><td>7.3</td>
+<td>The sensor's field of view is unobstructed by any part of the housing.</td><td>A sensor that is blocked gives wrong data, so the design fails its main job.</td></tr>
+<tr><td>7.4</td>
+<td>Sensors and servos are replaceable with hand tools in under 2 minutes.</td><td>Classroom robots are reused across cohorts, so parts will wear and break.</td></tr>
+<tr><td rowspan="2"><strong>Material</strong></td><td>8.1</td>
+<td>PETG for the claw, wrist hub and sensor pod; 3 mm MDF for the mounting bracket.</td><td>PETG is more impact-resistant than PLA and the lab printer is PETG-calibrated.</td></tr>
+<tr><td>8.2</td>
+<td>Flat or simple parts use 3 mm laser-cut MDF to save print time.</td><td>MDF cutting is faster than printing for flat parts, freeing the printer for complex geometry.</td></tr>
+</table></div>
+<div class="challenge"><h4>🧩 Your turn — write your own B1</h4>
+<p><strong>All:</strong> write 2 success criteria (one Aesthetics, one Safety) for <em>your</em> design.<br><strong>Most:</strong> make at least one measurable (a number and a unit).<br><strong>Some:</strong> justify it with a research reference (a spec sheet, a standard or a real product).</p>
+<textarea id="resp-b1" placeholder="e.g. Aesthetics 1.1: ... because ..."></textarea>
+<div class="row"><button onclick="saveChallenge('B1','Write your own success criteria','resp-b1')">Save my answer</button><span class="save-status" id="status-b1"></span></div></div>
+</section>
+
+<section id="b2"><h2>B2 · Design Ideas <span class="badge idea">3 different ideas</span></h2>
+<p class="sub">Three ideas that differ in <strong>mechanism and form</strong>, not just looks. Each sketch is an isometric render of the 3D CAD model with the sensor and mount labelled.</p>
+<div class="concept-grid">
+<div class="concept-card card"><img src="../img/t04_ca_iso.png" alt="Concept 1 Talon-Grip">
+<h3>Concept 1 — “Talon-Grip”</h3>
+<div class="tagline">Parallel jaws, fixed sensor dome</div><p>A two-finger parallel jaw on a lead screw with the TOF sensor fixed on top. Fewest moving parts, but the grip is poor on round or irregular rubble.</p>
+<p class="legend">Envelope 152.5 × 70.0 × 69.0 mm · ≈ 78 g · ≈ AED 27</p></div><div class="concept-card card"><img src="../img/t04_cb_iso.png" alt="Concept 2 Claw-Reach">
+<h3>Concept 2 — “Claw-Reach” <span class="badge sel">SELECTED</span></h3>
+<div class="tagline">Three-finger claw on a telescoping forearm</div><p>A humanoid-style three-finger claw closes radially on a telescoping forearm, with the TOF sensor centred in the palm so it always looks where it grips.</p>
+<p class="legend">Envelope 306.3 × 61.0 × 64.0 mm · ≈ 134 g · ≈ AED 34</p></div><div class="concept-card card"><img src="../img/t04_cc_iso.png" alt="Concept 3 Scoop-Paddle">
+<h3>Concept 3 — “Scoop-Paddle”</h3>
+<div class="tagline">Hinged scoop with periscope sensor</div><p>A hinged scoop slides under flat debris and lifts it, while the sensor sits on a tall periscope mast. Good for flat rubble, but bulky.</p>
+<p class="legend">Envelope 150.5 × 84.0 × 101.0 mm · ≈ 52 g · ≈ AED 23</p></div>
+</div>
+<div class="challenge"><h4>🧩 Your turn — sketch a 4th idea</h4>
+<p><strong>All:</strong> describe a 4th idea in 2–3 sentences. It must differ by <em>mechanism</em>, not just colour or shape.<br><strong>Most:</strong> say which ACCESSFM criteria it would score best and worst on.<br><strong>Some:</strong> describe it so well that a partner could draw it from your words alone.</p>
+<textarea id="resp-b2" placeholder="My 4th design idea is..."></textarea>
+<div class="row"><button onclick="saveChallenge('B2','Sketch a 4th design idea','resp-b2')">Save my answer</button><span class="save-status" id="status-b2"></span></div></div>
+</section>
+
+<section id="b3"><h2>B3 · Chosen Design</h2><p class="sub">Each idea is rated 1 (poor) – 5 (excellent) against every ACCESSFM success criterion from B1.</p>
+<div class="card" style="overflow-x:auto;"><table>
+<tr><th>Category</th><th>What is being evaluated</th><th>Concept 1<br>Talon-Grip</th><th>Concept 2<br>Claw-Reach</th><th>Concept 3<br>Scoop-Paddle</th></tr>
+<tr><td>Aesthetics</td><td>High-visibility, rounded, safe-looking shell</td><td class="rating r3">3</td><td class="rating r5">5</td><td class="rating r3">3</td></tr><tr><td>Cost</td><td>≤ AED 70, reuses kit parts</td><td class="rating r5">5</td><td class="rating r3">3</td><td class="rating r4">4</td></tr><tr><td>Customer</td><td>Fits the UGOT mount, builds in one lesson</td><td class="rating r4">4</td><td class="rating r4">4</td><td class="rating r3">3</td></tr><tr><td>Environment</td><td>≥ 80% recyclable material, light</td><td class="rating r4">4</td><td class="rating r4">4</td><td class="rating r3">3</td></tr><tr><td>Size</td><td>Fits ≤ 320×80×80 mm</td><td class="rating r4">4</td><td class="rating r4">4</td><td class="rating r2">2</td></tr><tr><td>Safety</td><td>No pinch points or sharp edges</td><td class="rating r3">3</td><td class="rating r5">5</td><td class="rating r3">3</td></tr><tr><td>Function</td><td>Meets both measurable function targets</td><td class="rating r2">2</td><td class="rating r5">5</td><td class="rating r4">4</td></tr><tr><td>Material</td><td>PETG + MDF used sensibly</td><td class="rating r4">4</td><td class="rating r4">4</td><td class="rating r4">4</td></tr>
+<tr style="font-weight:700;background:#eef3f8;"><td colspan="2">Total (/40)</td><td>29</td><td>34</td><td>26</td></tr></table></div>
+<div class="callout"><strong>Justification of the chosen design:</strong> Concept 2, “Claw-Reach”, scores highest overall (34/40; the others score 29 and 26). It wins by the largest margin on <strong>Aesthetics</strong> and <strong>Safety</strong>, because its three-finger radial claw and wrist-centred sensor give the most reliable grip on irregular rubble. Its estimated cost of about AED 34 and mass of about 134 g sit inside the B1 limits, and the weaker ideas lose marks where they break a measurable criterion.</div>
+<div class="fig"><img src="../img/t04_cb_iso.png" alt="Chosen design" style="max-width:720px;"><figcaption>The chosen design, presented again: Concept 2 “Claw-Reach”.</figcaption></div>
+<div class="challenge"><h4>🧩 Your turn — rate and justify</h4>
+<p><strong>All:</strong> pick one rating you disagree with, give your own 1–5 and say why.<br><strong>Most:</strong> re-total the scores. Does the chosen design still win?<br><strong>Some:</strong> write a 3-sentence justification in the style above for <em>your</em> three ideas.</p>
+<textarea id="resp-b3" placeholder="I would rate ... a [1-5] for ... because ..."></textarea>
+<div class="row"><button onclick="saveChallenge('B3','Rate and justify a design choice','resp-b3')">Save my answer</button><span class="save-status" id="status-b3"></span></div></div>
+</section>
+
+<section id="b4"><h2>B4 · Detailed Plans</h2><p class="sub">Dimensioned CAD output for the chosen design: orthographic (front / top / right side), exploded view, and Bill of Materials.</p>
+<div class="fig card"><img src="../img/t04_ortho.png" alt="Dimensioned orthographic views"><figcaption>Dimensioned orthographic views with overall envelope and sensor size, in millimetres.</figcaption></div>
+<div class="fig card"><img src="../img/t04_exploded.png" alt="Exploded view"><figcaption>Exploded view. Numbered markers match the Bill of Materials below.</figcaption></div>
+<div class="card" style="overflow-x:auto;"><h3 style="margin-top:0;color:var(--navy);">Bill of Materials (BOM)</h3><table>
+<tr><th>#</th><th>Part</th><th>Material / source</th><th>Approx. size</th><th>Qty</th><th>Fabrication method</th></tr>
+<tr><td>1</td><td>Mounting bracket</td><td>3mm MDF</td><td>50 x 50 x 16 mm</td><td>1</td><td>Laser-cut</td></tr><tr><td>2</td><td>Shoulder joint ball</td><td>PETG</td><td>60 x 60 x 60 mm</td><td>1</td><td>3D-printed (20% infill)</td></tr><tr><td>3</td><td>Forearm outer tube</td><td>PETG</td><td>90 x 36 x 36 mm</td><td>1</td><td>3D-printed (20% infill)</td></tr><tr><td>4</td><td>Forearm inner tube</td><td>PETG</td><td>65 x 26 x 26 mm</td><td>1</td><td>3D-printed (20% infill)</td></tr><tr><td>5</td><td>Wrist hub</td><td>PETG</td><td>50 x 50 x 30 mm</td><td>1</td><td>3D-printed (20% infill)</td></tr><tr><td>6</td><td>TOF sensor pod</td><td>UGOT kit part</td><td>20 x 20 x 14 mm</td><td>1</td><td>Kit component - reused</td></tr><tr><td>7</td><td>Claw finger base</td><td>PETG</td><td>43 x 16 x 16 mm</td><td>3</td><td>3D-printed (20% infill)</td></tr><tr><td>8</td><td>Claw finger tip</td><td>PETG</td><td>33 x 12 x 12 mm</td><td>3</td><td>3D-printed (20% infill)</td></tr><tr><td>9</td><td>M3 x 12 bolt & nut sets</td><td>Hardware</td><td>M3 x 12 mm</td><td>14</td><td>Off-the-shelf</td></tr><tr><td>10</td><td>Cable ties & wiring set</td><td>Hardware</td><td>-</td><td>1</td><td>Off-the-shelf</td></tr></table>
+<p class="legend">Estimated printed + cut mass: <strong>≈ 134 g</strong> (limit 250 g). Estimated cost: <strong>≈ AED 34</strong> (limit 70). Overall envelope: <strong>306.3 × 61.0 × 64.0 mm</strong>.</p></div>
+<div class="challenge"><h4>🧩 Your turn — dimension your own idea</h4>
+<p><strong>All:</strong> list 3 real dimensions (mm) your design needs.<br><strong>Most:</strong> list at least 5 BOM rows (part, material, qty, method).<br><strong>Some:</strong> describe one feature to add to your exploded view (a wiring channel, a hinge, a snap-fit).</p>
+<textarea id="resp-b4" placeholder="Key dimensions / BOM / extra feature..."></textarea>
+<div class="row"><button onclick="saveChallenge('B4','Dimension and BOM your own idea','resp-b4')">Save my answer</button><span class="save-status" id="status-b4"></span></div></div>
+</section>
+
+<section id="integration"><h2>Integration with UGOT</h2><p class="sub">How the chosen module bolts onto the UGOT chassis, plus the humanoid reimagining. All downloadable as STL below.</p>
+<div class="fig card"><img src="../img/t04_integration.png" alt="Chosen design on UGOT chassis"><figcaption>“Claw-Reach” mounted on a UGOT chassis (simplified reference chassis).</figcaption></div>
+<div class="concept-grid">
+<div class="concept-card card"><img src="../img/ugot_base_isometric.png" alt="UGOT base chassis"><h3>UGOT Base Chassis</h3><div class="tagline">Reference model</div><p>A simplified chassis (body, 4 wheels, camera, controller) so you can test-fit your own design in CAD before printing.</p></div>
+<div class="concept-card card"><img src="../img/ugot_humanoid_isometric.png" alt="UGOT Guardian Humanoid"><h3>UGOT Guardian Humanoid</h3><div class="tagline">Wheeled humanoid reimagining</div><p>The wheeled base keeps its mobility while the top half becomes a torso, head and arms. Your Criterion B design can be reinterpreted the same way.</p></div></div>
+<div class="challenge"><h4>🧩 Your turn — Humanoid challenge</h4>
+<p>Add a second arm to the Guardian Humanoid. What jobs could two arms do that one cannot?<br><strong>All:</strong> describe one change to the humanoid for this lesson.<br><strong>Most:</strong> sketch in words a second humanoid concept with a different silhouette.<br><strong>Some:</strong> justify it against at least 4 ACCESSFM categories.</p>
+<textarea id="resp-humanoid" placeholder="Type your idea here..."></textarea>
+<div class="row"><button onclick="saveChallenge('humanoid','Humanoid redesign challenge','resp-humanoid')">Save my answer</button><span class="save-status" id="status-humanoid"></span></div></div>
+</section>
+
+<section id="downloads"><h2>Downloads &amp; TinkerCAD</h2><p class="sub">STL files for all three ideas, the chosen design and the UGOT references, ready for TinkerCAD or any slicer.</p>
+<div class="download-grid">
+<a class="dlbtn" href="../stl/UGOT_T04_CHOSEN_Claw-Reach_FINAL.stl" download>Chosen design STL<small>UGOT_T04_CHOSEN_Claw-Reach_FINAL.stl</small></a>
+<a class="dlbtn" href="../stl/UGOT_T04_Concept1_Talon-Grip.stl" download>Concept 1 STL<small>Talon-Grip</small></a><a class="dlbtn" href="../stl/UGOT_T04_Concept2_Claw-Reach.stl" download>Concept 2 STL<small>Claw-Reach</small></a><a class="dlbtn" href="../stl/UGOT_T04_Concept3_Scoop-Paddle.stl" download>Concept 3 STL<small>Scoop-Paddle</small></a>
+<a class="dlbtn" href="../stl/UGOT_T04_CHOSEN_Claw-Reach_EXPLODED_reference.stl" download>Exploded-position STL<small>Reference only</small></a>
+<a class="dlbtn" href="../stl/UGOT_BaseChassis.stl" download style="background:var(--blue);">UGOT base chassis STL<small>Test-fit your designs</small></a>
+<a class="dlbtn" href="../stl/UGOT_HUMANOID.stl" download style="background:var(--blue);">Guardian Humanoid STL<small>Wheeled base + torso + arms</small></a></div>
+<div class="callout" style="margin-top:20px;"><strong>Open in TinkerCAD (free):</strong><ol style="margin:10px 0 0;padding-left:20px;">
+<li>Go to <a href="https://www.tinkercad.com/" target="_blank" rel="noopener">tinkercad.com</a> and sign in.</li><li>Create a new <em>3D Design</em>.</li>
+<li>Click <strong>Import</strong> → choose an <code>.stl</code> file → set units to <strong>mm</strong> → Import.</li>
+<li>Measure, recolour, duplicate or merge it with your own shapes, then <strong>Export → .STL</strong> for the slicer.</li></ol></div></section>
+
+<section id="worksheet"><h2>Modelling Worksheet — Making the Physical Model</h2><p class="sub">Follow in order. Lab tools: 3D printer (PETG), laser cutter, M3 hex driver, 320-grit sandpaper, hot glue gun.</p>
+<div class="card"><ol class="steps"><li><strong>Check the CAD:</strong> open the chosen-design STL in TinkerCAD or your slicer, set units to millimetres and confirm the envelope is 306.3 × 61.0 × 64.0 mm (limit 320 × 80 × 80 mm).</li><li><strong>Slice the printed parts</strong> (Claw finger base, Claw finger tip, Forearm inner tube, Forearm outer tube, Shoulder joint ball, Wrist hub) in Cura/PrusaSlicer: PETG, 0.2 mm layers, 15–20% infill, supports only where an overhang needs them.</li><li><strong>Laser-cut the MDF parts</strong> (mount plate) from 3 mm MDF using the footprint on the top orthographic view; add 4 × M3 clearance holes for the UGOT mount.</li><li><strong>De-burr and sand</strong> every printed part (320 grit); pay attention to pivot holes and sensor windows so nothing binds or blocks a lens.</li><li><strong>Fit the sensor:</strong> Fit the TOF sensor module into the palm pod, lens flush and unobstructed, and secure it with a small bead of hot glue or M2 screws.</li><li><strong>Assemble the mechanism</strong> following the numbered exploded view and BOM: fasteners finger-tight first, then check every moving part swings freely.</li><li><strong>Wire and test:</strong> connect the kit sensor and servo to the UGOT controller; run a short program to confirm each reading and movement.</li><li><strong>Mount to UGOT:</strong> bolt the mount plate to the chassis with the kit's M3 screws (Customer spec 3.1) and confirm the wheels still clear.</li><li><strong>Function-test</strong> against specs 7.1 and 7.2: Grips and lifts objects of <strong>20–150 g</strong> at up to <strong>300 mm</strong> reach. Record results in your portfolio.</li><li><strong>Finish:</strong> spray or vinyl-wrap in the colour scheme from specification 1.1, then re-test fit after finishing.</li></ol></div></section>
+
+<section id="quiz"><h2>Quiz — Joint Rescue</h2><p class="sub">Kahoot-style, timed, auto-marked. Your score is saved once you log in above.</p>
+<div class="quiz-card" id="quizCard">
+<div class="quiz-start" id="quizStart"><h3 style="margin-top:0;">🏁 Ready to play?</h3><p style="color:var(--muted);">10 questions · 15 seconds each · lesson content + Criterion B skills.</p><button onclick="startQuiz()">Start Quiz</button></div>
+<div id="quizPlay" style="display:none;"><div class="quiz-head"><div class="qnum" id="qnum" style="color:#e8e8ff;">QUESTION 1</div><h3 class="qtext" id="qtext" style="color:#fff;">...</h3><div class="timer-wrap"><div class="timer-bar" id="timerBar"></div></div></div>
+<div class="quiz-body"><div class="opt-grid" id="optGrid"></div></div>
+<div class="quiz-foot"><span>Score: <span class="score-pill" id="scorePill">0</span></span><span id="feedbackMsg"></span></div></div>
+<div class="quiz-result" id="quizResult" style="display:none;"><h3 style="margin-top:0;">🎉 Quiz complete!</h3><p style="font-size:1.4rem;font-weight:800;color:var(--navy);" id="finalScore">0 / 10</p><p id="submitStatus" class="save-status"></p><button onclick="startQuiz()">Play again</button><div class="lb-table" id="leaderboard"></div></div>
+</div></section>
+
+<section><h2>Reflection prompts</h2><div class="card"><ul>
+<li>Which ACCESSFM category was hardest to satisfy with all three of <em>your</em> ideas, and why?</li>
+<li>How did sensor range, reach or print time change once you saw the dimensioned drawings?</li>
+<li>Where might your chosen design still fail Safety in real use, and how would you test for it?</li></ul></div></section>
+
+<div class="pager"><a href="topic-03.html">← Topic 03: Finding People by Sound</a>
+<a href="topic-05.html">Topic 05: Flexible Movement →</a></div>
+</div>
+<aside class="ref-side"><img src="../img/ugot_models_reference.png" alt="Stock UGOT builds"><div class="cap">Stock UGOT builds. Your design bolts onto any of these.</div>
+<img src="../img/t04_integration.png" alt="This lesson's design on the chassis"><div class="cap">This lesson's chosen design on the chassis</div></aside>
+</div></main>
+<footer><p>AIA Grade 10 Digital Design &amp; IB MYP Computer Science · UGOT AI Robotics: Designing Autonomous Vehicles for Safer Communities</p>
+<p>Models are student-style exemplars. Sensor ranges are design targets: always verify against the UGOT datasheet.</p></footer>
+<script src="../assets/config.js"></script>
+<script>window.LESSON = { name: "Topic 04 - Joint Rescue", quiz: [{"q": "Which two component types does the Joint Rescue arm combine?", "opts": ["Two batteries", "A sensor and an actuator", "A speaker and a screen", "Two sensors"], "correct": 1}, {"q": "Which feature mainly protects the Safety criterion?", "opts": ["The telescoping forearm", "The 6 mm minimum pinch gap", "The orange paint", "The MDF bracket"], "correct": 1}, {"q": "Why was PETG chosen for the claw?", "opts": ["It is the cheapest metal", "It is clear glass", "It never needs printing", "Impact resistant and slightly flexible"], "correct": 3}, {"q": "Why is the sensor in the palm?", "opts": ["It always looks exactly where the claw grips", "It is hidden from users", "It saves weight only", "It makes the arm longer"], "correct": 0}, {"q": "What does the telescoping forearm add?", "opts": ["Extra battery", "More colour", "A louder motor", "Extra reach"], "correct": 3}, {"q": "Which ACCESSFM letter covers whether a product could hurt someone?", "opts": ["Size", "Cost", "Safety", "Material"], "correct": 2}, {"q": "How many different design ideas does MYP Criterion B (B2) need at minimum?", "opts": ["1", "5", "3", "2"], "correct": 2}, {"q": "In B3 (Chosen Design), what must you do before justifying your choice?", "opts": ["Ask a friend", "Evaluate every idea against every success criterion", "Pick your favourite", "Compare only cost"], "correct": 1}, {"q": "What does an exploded view show in B4?", "opts": ["All parts separated to show assembly order", "A close-up of one part", "The product's weight", "The product on fire"], "correct": 0}, {"q": "Which three views are on the orthographic sheet?", "opts": ["Top only, three times", "Front, back and bottom", "Front, top and right side", "Left, right and back"], "correct": 2}] };</script>
+<script src="../assets/site.js"></script>
+</body></html>

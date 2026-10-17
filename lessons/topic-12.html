@@ -1,0 +1,176 @@
+<!DOCTYPE html><html lang="en"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Topic 12 · Smart Sorting | Criterion B</title><link rel="stylesheet" href="../assets/site.css"></head><body>
+<div class="topbar"><a class="brand" href="../index.html">🤖 AIA · UGOT</a><a class="tab" href="../index.html">Home</a><a class="tab" href="../criteria-a.html">Criteria A</a><a class="tab active" href="../criteria-b.html">Criteria B</a><a class="tab" href="../criteria-c.html">Criteria C</a><a class="tab" href="../criteria-d.html">Criteria D</a></div>
+<header class="hero">
+  <div class="crumbs"><a href="../index.html">Home</a> › <a href="../criteria-b.html">Criterion B</a> › Topic 12</div>
+  <span class="tag">AIA · Grade 10 Digital Design · UGOT AI Robotics</span>
+  <h1>📦 Criterion B — Topic 12: Smart Sorting</h1>
+  <p><strong>UGOT kit used:</strong> Camera / colour sensor / barcode reader + servo gate</p>
+  <p>A worked exemplar for B1 Design Specification, B2 Design Ideas, B3 Chosen Design and B4 Detailed Plans. Use it as a model for your own e-portfolio.</p>
+</header>
+<nav class="toc">
+  <a href="#brief">Design Brief</a><a href="#b1">B1 Specification</a><a href="#b2">B2 Ideas</a><a href="#b3">B3 Chosen Design</a>
+  <a href="#b4">B4 Plans</a><a href="#integration">Integration</a><a href="#downloads">Downloads</a><a href="#worksheet">Worksheet</a><a href="#quiz">Quiz</a>
+</nav>
+<div class="loginbar" id="loginbar">
+  <span>👋 Enter your name and class to save your challenge answers and quiz scores to the class Google Sheet:</span>
+  <input id="loginName" type="text" placeholder="Your name" autocomplete="off">
+  <input id="loginClass" type="text" placeholder="Class (e.g. 10B)" autocomplete="off">
+  <button onclick="doLogin()">Start / Log in</button></div>
+<main>
+<div class="ref-layout">
+<aside class="ref-side"><img src="../img/ugot_parts_reference.png" alt="Real UGOT kit parts"><div class="cap">The real UGOT kit parts you are building with</div></aside>
+<div>
+
+<section id="brief"><h2>Design Brief</h2><p class="sub">Context that frames the whole Criterion B response for this lesson.</p>
+<div class="card">
+<p><strong>Problem context (real world &amp; UAE link):</strong> In a Dubai logistics hub or a school canteen, parcels arrive mixed up. A sorter reads each item and sends it to the correct bin.</p>
+<p><strong>Design task:</strong> Design a physical, 3D-printable / laser-cut module that integrates the UGOT <em>Camera / colour sensor / barcode reader + servo gate</em> and bolts to the UGOT chassis. It must be buildable by a Grade 10 student in the Product Design lab (MDF, wood, 3D printing).</p>
+<p><strong>User:</strong> a 14–16 year-old MYP student assembling, testing and demonstrating the robot in class and at the AIA STEM showcase.</p>
+</div></section>
+
+<section id="b1"><h2>B1 · Design Specification</h2>
+<p class="sub">Each success criterion is described and justified using ACCESSFM. Rows marked <span class="measurable">&nbsp;&nbsp;&nbsp;&nbsp;</span> are <strong>measurable</strong>. Size, mass and cost limits are calculated from the chosen 3D model.</p>
+<div class="card" style="overflow-x:auto;"><table>
+<tr><th style="width:12%">Specification</th><th style="width:7%">#</th><th style="width:42%">Success criterion</th><th>Justification</th></tr>
+<tr><td rowspan="2"><strong>Aesthetics</strong></td><td>1.1</td>
+<td>Colour scheme of light grey with colour-coded bins.</td><td>A high-visibility, consistent palette makes the tool instantly recognisable and looks professional at the AIA STEM showcase.</td></tr>
+<tr><td>1.2</td>
+<td>Smooth, rounded external edges (fillet ≥ 2 mm) with no visible fasteners on the outer shell.</td><td>Rounded edges read as safe to handle and avoid snagging.</td></tr>
+<tr><td rowspan="2"><strong>Cost</strong></td><td>2.1</td>
+<td class="measurable">Material + fabrication cost per unit ≤ <strong>AED 70</strong>.</td><td>Based on PETG filament at about AED 0.12/g, MDF offcuts and AED 14 of hardware; keeps a class set affordable.</td></tr>
+<tr><td>2.2</td>
+<td>Re-uses UGOT kit servos, sensors and fasteners; no proprietary parts.</td><td>Avoids extra purchase orders and keeps the design compatible with kits the school already owns.</td></tr>
+<tr><td rowspan="2"><strong>Customer</strong></td><td>3.1</td>
+<td>Bolts to the UGOT chassis with M3 fasteners through the mount plate using only the lab toolkit (check hole spacing against your own kit).</td><td>Every group's UGOT chassis must be able to accept the part.</td></tr>
+<tr><td>3.2</td>
+<td>Assembles in one lesson (≤ 70 min) by a pair of Grade 10 students.</td><td>Matches the AIA single-period lesson structure for this unit.</td></tr>
+<tr><td rowspan="2"><strong>Environment</strong></td><td>4.1</td>
+<td class="measurable">At least <strong>80%</strong> of the structural material is recyclable PETG or reclaimed MDF offcuts.</td><td>PETG is recyclable and MDF offcuts come from the lab scrap bin (6 R's: Reduce, Reuse).</td></tr>
+<tr><td>4.2</td>
+<td class="measurable">Printed + cut mass ≤ <strong>200 g</strong>.</td><td>Lower mass means less filament, less print energy and less load on the UGOT motors.</td></tr>
+<tr><td rowspan="2"><strong>Size</strong></td><td>5.1</td>
+<td class="measurable">Overall envelope ≤ <strong>170 × 140 × 120 mm</strong> (L × W × H).</td><td>Keeps the module compact enough to mount on the UGOT chassis without hitting its wheels or the floor.</td></tr>
+<tr><td>5.2</td>
+<td>Every printed part fits on a 200 × 200 mm print bed; every cut part fits a 300 × 300 mm laser bed.</td><td>Matches the lab machinery available to students.</td></tr>
+<tr><td rowspan="2"><strong>Safety</strong></td><td>6.1</td>
+<td>Gate and pusher have a force-limited servo and rounded edges.</td><td>Reduces the chance of injury to the student building, testing and demonstrating it.</td></tr>
+<tr><td>6.2</td>
+<td>No exposed sharp corners: all edges filleted or sanded; sensor lens recessed about 2 mm to avoid impact cracks.</td><td>Standard safe-handling requirement for a student-built robotic part.</td></tr>
+<tr><td rowspan="4"><strong>Function</strong></td><td>7.1</td>
+<td class="measurable">Sorts items into <strong>3 bins</strong> with at least <strong>90%</strong> accuracy at <strong>one item every 5 seconds</strong>.</td><td>Directly measures whether the design solves the problem in the scenario above.</td></tr>
+<tr><td>7.2</td>
+<td class="measurable">Bins hold at least <strong>10</strong> blocks of 25 mm size each.</td><td>Sensor range figures are design targets; the housing must never block or shorten them.</td></tr>
+<tr><td>7.3</td>
+<td>The sensor's field of view is unobstructed by any part of the housing.</td><td>A sensor that is blocked gives wrong data, so the design fails its main job.</td></tr>
+<tr><td>7.4</td>
+<td>Sensors and servos are replaceable with hand tools in under 2 minutes.</td><td>Classroom robots are reused across cohorts, so parts will wear and break.</td></tr>
+<tr><td rowspan="2"><strong>Material</strong></td><td>8.1</td>
+<td>PETG for chutes and bins; 3 mm MDF for the mount plate and bin walls.</td><td>PETG is more impact-resistant than PLA and the lab printer is PETG-calibrated.</td></tr>
+<tr><td>8.2</td>
+<td>Flat or simple parts use 3 mm laser-cut MDF to save print time.</td><td>MDF cutting is faster than printing for flat parts, freeing the printer for complex geometry.</td></tr>
+</table></div>
+<div class="challenge"><h4>🧩 Your turn — write your own B1</h4>
+<p><strong>All:</strong> write 2 success criteria (one Aesthetics, one Safety) for <em>your</em> design.<br><strong>Most:</strong> make at least one measurable (a number and a unit).<br><strong>Some:</strong> justify it with a research reference (a spec sheet, a standard or a real product).</p>
+<textarea id="resp-b1" placeholder="e.g. Aesthetics 1.1: ... because ..."></textarea>
+<div class="row"><button onclick="saveChallenge('B1','Write your own success criteria','resp-b1')">Save my answer</button><span class="save-status" id="status-b1"></span></div></div>
+</section>
+
+<section id="b2"><h2>B2 · Design Ideas <span class="badge idea">3 different ideas</span></h2>
+<p class="sub">Three ideas that differ in <strong>mechanism and form</strong>, not just looks. Each sketch is an isometric render of the 3D CAD model with the sensor and mount labelled.</p>
+<div class="concept-grid">
+<div class="concept-card card"><img src="../img/t12_ca_iso.png" alt="Concept 1 Chute-Sorter">
+<h3>Concept 1 — “Chute-Sorter” <span class="badge sel">SELECTED</span></h3>
+<div class="tagline">Hopper, camera and fan of chutes</div><p>Items drop through a hopper, a camera reads them, a servo gate swings, and gravity slides each item down the right chute into a colour-coded bin.</p>
+<p class="legend">Envelope 160.0 × 126.0 × 110.0 mm · ≈ 108 g · ≈ AED 35</p></div><div class="concept-card card"><img src="../img/t12_cb_iso.png" alt="Concept 2 Revolver-Bay">
+<h3>Concept 2 — “Revolver-Bay”</h3>
+<div class="tagline">Six-chamber cargo drum</div><p>A rotating drum with six chambers loads, reads a barcode and drops items. Smart and compact, but slower and complex to build.</p>
+<p class="legend">Envelope 159.0 × 112.0 × 121.9 mm · ≈ 172 g · ≈ AED 49</p></div><div class="concept-card card"><img src="../img/t12_cc_iso.png" alt="Concept 3 Belt-Lift">
+<h3>Concept 3 — “Belt-Lift”</h3>
+<div class="tagline">Inclined belt with pusher</div><p>An inclined conveyor carries items under a colour sensor, and a servo pusher knocks them off into bins. Realistic, but needs more motors.</p>
+<p class="legend">Envelope 167.4 × 120.0 × 89.0 mm · ≈ 95 g · ≈ AED 33</p></div>
+</div>
+<div class="challenge"><h4>🧩 Your turn — sketch a 4th idea</h4>
+<p><strong>All:</strong> describe a 4th idea in 2–3 sentences. It must differ by <em>mechanism</em>, not just colour or shape.<br><strong>Most:</strong> say which ACCESSFM criteria it would score best and worst on.<br><strong>Some:</strong> describe it so well that a partner could draw it from your words alone.</p>
+<textarea id="resp-b2" placeholder="My 4th design idea is..."></textarea>
+<div class="row"><button onclick="saveChallenge('B2','Sketch a 4th design idea','resp-b2')">Save my answer</button><span class="save-status" id="status-b2"></span></div></div>
+</section>
+
+<section id="b3"><h2>B3 · Chosen Design</h2><p class="sub">Each idea is rated 1 (poor) – 5 (excellent) against every ACCESSFM success criterion from B1.</p>
+<div class="card" style="overflow-x:auto;"><table>
+<tr><th>Category</th><th>What is being evaluated</th><th>Concept 1<br>Chute-Sorter</th><th>Concept 2<br>Revolver-Bay</th><th>Concept 3<br>Belt-Lift</th></tr>
+<tr><td>Aesthetics</td><td>High-visibility, rounded, safe-looking shell</td><td class="rating r5">5</td><td class="rating r5">5</td><td class="rating r4">4</td></tr><tr><td>Cost</td><td>≤ AED 70, reuses kit parts</td><td class="rating r4">4</td><td class="rating r2">2</td><td class="rating r2">2</td></tr><tr><td>Customer</td><td>Fits the UGOT mount, builds in one lesson</td><td class="rating r4">4</td><td class="rating r3">3</td><td class="rating r3">3</td></tr><tr><td>Environment</td><td>≥ 80% recyclable material, light</td><td class="rating r4">4</td><td class="rating r3">3</td><td class="rating r3">3</td></tr><tr><td>Size</td><td>Fits ≤ 170×140×120 mm</td><td class="rating r4">4</td><td class="rating r4">4</td><td class="rating r2">2</td></tr><tr><td>Safety</td><td>No pinch points or sharp edges</td><td class="rating r4">4</td><td class="rating r3">3</td><td class="rating r3">3</td></tr><tr><td>Function</td><td>Meets both measurable function targets</td><td class="rating r5">5</td><td class="rating r3">3</td><td class="rating r4">4</td></tr><tr><td>Material</td><td>PETG + MDF used sensibly</td><td class="rating r4">4</td><td class="rating r3">3</td><td class="rating r3">3</td></tr>
+<tr style="font-weight:700;background:#eef3f8;"><td colspan="2">Total (/40)</td><td>34</td><td>26</td><td>24</td></tr></table></div>
+<div class="callout"><strong>Justification of the chosen design:</strong> Concept 1, “Chute-Sorter”, scores highest overall (34/40; the others score 26 and 24). It wins by the largest margin on <strong>Cost</strong> and <strong>Customer</strong>, because its gravity chutes and single gate servo sort without a belt or pusher, keeping the cost and the number of moving parts low. Its estimated cost of about AED 35 and mass of about 108 g sit inside the B1 limits, and the weaker ideas lose marks where they break a measurable criterion.</div>
+<div class="fig"><img src="../img/t12_ca_iso.png" alt="Chosen design" style="max-width:720px;"><figcaption>The chosen design, presented again: Concept 1 “Chute-Sorter”.</figcaption></div>
+<div class="challenge"><h4>🧩 Your turn — rate and justify</h4>
+<p><strong>All:</strong> pick one rating you disagree with, give your own 1–5 and say why.<br><strong>Most:</strong> re-total the scores. Does the chosen design still win?<br><strong>Some:</strong> write a 3-sentence justification in the style above for <em>your</em> three ideas.</p>
+<textarea id="resp-b3" placeholder="I would rate ... a [1-5] for ... because ..."></textarea>
+<div class="row"><button onclick="saveChallenge('B3','Rate and justify a design choice','resp-b3')">Save my answer</button><span class="save-status" id="status-b3"></span></div></div>
+</section>
+
+<section id="b4"><h2>B4 · Detailed Plans</h2><p class="sub">Dimensioned CAD output for the chosen design: orthographic (front / top / right side), exploded view, and Bill of Materials.</p>
+<div class="fig card"><img src="../img/t12_ortho.png" alt="Dimensioned orthographic views"><figcaption>Dimensioned orthographic views with overall envelope and sensor size, in millimetres.</figcaption></div>
+<div class="fig card"><img src="../img/t12_exploded.png" alt="Exploded view"><figcaption>Exploded view. Numbered markers match the Bill of Materials below.</figcaption></div>
+<div class="card" style="overflow-x:auto;"><h3 style="margin-top:0;color:var(--navy);">Bill of Materials (BOM)</h3><table>
+<tr><th>#</th><th>Part</th><th>Material / source</th><th>Approx. size</th><th>Qty</th><th>Fabrication method</th></tr>
+<tr><td>1</td><td>Mounting plate</td><td>3mm MDF</td><td>130 x 110 x 6 mm</td><td>1</td><td>Laser-cut</td></tr><tr><td>2</td><td>Intake hopper</td><td>PETG</td><td>72 x 72 x 44 mm</td><td>1</td><td>3D-printed (20% infill)</td></tr><tr><td>3</td><td>Gate servo</td><td>UGOT kit part</td><td>16 x 16 x 16 mm</td><td>1</td><td>Kit component - reused</td></tr><tr><td>4</td><td>Gate flap</td><td>PETG</td><td>26 x 18 x 4 mm</td><td>1</td><td>3D-printed (20% infill)</td></tr><tr><td>5</td><td>Camera post</td><td>PETG</td><td>100 x 10 x 10 mm</td><td>1</td><td>3D-printed (20% infill)</td></tr><tr><td>6</td><td>Camera arm</td><td>PETG</td><td>42 x 8 x 8 mm</td><td>1</td><td>3D-printed (20% infill)</td></tr><tr><td>7</td><td>Scan camera</td><td>UGOT kit part</td><td>16 x 16 x 12 mm</td><td>1</td><td>Kit component - reused</td></tr><tr><td>8</td><td>Sorting chute</td><td>PETG</td><td>80 x 24 x 18 mm</td><td>3</td><td>3D-printed (20% infill)</td></tr><tr><td>9</td><td>Sorting bin</td><td>PETG</td><td>26 x 26 x 24 mm</td><td>3</td><td>3D-printed (20% infill)</td></tr><tr><td>10</td><td>M3 x 12 bolt & nut sets</td><td>Hardware</td><td>M3 x 12 mm</td><td>14</td><td>Off-the-shelf</td></tr><tr><td>11</td><td>Cable ties & wiring set</td><td>Hardware</td><td>-</td><td>1</td><td>Off-the-shelf</td></tr></table>
+<p class="legend">Estimated printed + cut mass: <strong>≈ 108 g</strong> (limit 200 g). Estimated cost: <strong>≈ AED 35</strong> (limit 70). Overall envelope: <strong>160.0 × 126.0 × 110.0 mm</strong>.</p></div>
+<div class="challenge"><h4>🧩 Your turn — dimension your own idea</h4>
+<p><strong>All:</strong> list 3 real dimensions (mm) your design needs.<br><strong>Most:</strong> list at least 5 BOM rows (part, material, qty, method).<br><strong>Some:</strong> describe one feature to add to your exploded view (a wiring channel, a hinge, a snap-fit).</p>
+<textarea id="resp-b4" placeholder="Key dimensions / BOM / extra feature..."></textarea>
+<div class="row"><button onclick="saveChallenge('B4','Dimension and BOM your own idea','resp-b4')">Save my answer</button><span class="save-status" id="status-b4"></span></div></div>
+</section>
+
+<section id="integration"><h2>Integration with UGOT</h2><p class="sub">How the chosen module bolts onto the UGOT chassis, plus the humanoid reimagining. All downloadable as STL below.</p>
+<div class="fig card"><img src="../img/t12_integration.png" alt="Chosen design on UGOT chassis"><figcaption>“Chute-Sorter” mounted on a UGOT chassis (simplified reference chassis).</figcaption></div>
+<div class="concept-grid">
+<div class="concept-card card"><img src="../img/ugot_base_isometric.png" alt="UGOT base chassis"><h3>UGOT Base Chassis</h3><div class="tagline">Reference model</div><p>A simplified chassis (body, 4 wheels, camera, controller) so you can test-fit your own design in CAD before printing.</p></div>
+<div class="concept-card card"><img src="../img/ugot_humanoid_isometric.png" alt="UGOT Guardian Humanoid"><h3>UGOT Guardian Humanoid</h3><div class="tagline">Wheeled humanoid reimagining</div><p>The wheeled base keeps its mobility while the top half becomes a torso, head and arms. Your Criterion B design can be reinterpreted the same way.</p></div></div>
+<div class="challenge"><h4>🧩 Your turn — Humanoid challenge</h4>
+<p>Give the humanoid sorting hands. How would it pick, read and place parcels without dropping them?<br><strong>All:</strong> describe one change to the humanoid for this lesson.<br><strong>Most:</strong> sketch in words a second humanoid concept with a different silhouette.<br><strong>Some:</strong> justify it against at least 4 ACCESSFM categories.</p>
+<textarea id="resp-humanoid" placeholder="Type your idea here..."></textarea>
+<div class="row"><button onclick="saveChallenge('humanoid','Humanoid redesign challenge','resp-humanoid')">Save my answer</button><span class="save-status" id="status-humanoid"></span></div></div>
+</section>
+
+<section id="downloads"><h2>Downloads &amp; TinkerCAD</h2><p class="sub">STL files for all three ideas, the chosen design and the UGOT references, ready for TinkerCAD or any slicer.</p>
+<div class="download-grid">
+<a class="dlbtn" href="../stl/UGOT_T12_CHOSEN_Chute-Sorter_FINAL.stl" download>Chosen design STL<small>UGOT_T12_CHOSEN_Chute-Sorter_FINAL.stl</small></a>
+<a class="dlbtn" href="../stl/UGOT_T12_Concept1_Chute-Sorter.stl" download>Concept 1 STL<small>Chute-Sorter</small></a><a class="dlbtn" href="../stl/UGOT_T12_Concept2_Revolver-Bay.stl" download>Concept 2 STL<small>Revolver-Bay</small></a><a class="dlbtn" href="../stl/UGOT_T12_Concept3_Belt-Lift.stl" download>Concept 3 STL<small>Belt-Lift</small></a>
+<a class="dlbtn" href="../stl/UGOT_T12_CHOSEN_Chute-Sorter_EXPLODED_reference.stl" download>Exploded-position STL<small>Reference only</small></a>
+<a class="dlbtn" href="../stl/UGOT_BaseChassis.stl" download style="background:var(--blue);">UGOT base chassis STL<small>Test-fit your designs</small></a>
+<a class="dlbtn" href="../stl/UGOT_HUMANOID.stl" download style="background:var(--blue);">Guardian Humanoid STL<small>Wheeled base + torso + arms</small></a></div>
+<div class="callout" style="margin-top:20px;"><strong>Open in TinkerCAD (free):</strong><ol style="margin:10px 0 0;padding-left:20px;">
+<li>Go to <a href="https://www.tinkercad.com/" target="_blank" rel="noopener">tinkercad.com</a> and sign in.</li><li>Create a new <em>3D Design</em>.</li>
+<li>Click <strong>Import</strong> → choose an <code>.stl</code> file → set units to <strong>mm</strong> → Import.</li>
+<li>Measure, recolour, duplicate or merge it with your own shapes, then <strong>Export → .STL</strong> for the slicer.</li></ol></div></section>
+
+<section id="worksheet"><h2>Modelling Worksheet — Making the Physical Model</h2><p class="sub">Follow in order. Lab tools: 3D printer (PETG), laser cutter, M3 hex driver, 320-grit sandpaper, hot glue gun.</p>
+<div class="card"><ol class="steps"><li><strong>Check the CAD:</strong> open the chosen-design STL in TinkerCAD or your slicer, set units to millimetres and confirm the envelope is 160.0 × 126.0 × 110.0 mm (limit 170 × 140 × 120 mm).</li><li><strong>Slice the printed parts</strong> (Camera arm, Camera post, Gate flap, Intake hopper, Sorting bin, Sorting chute) in Cura/PrusaSlicer: PETG, 0.2 mm layers, 15–20% infill, supports only where an overhang needs them.</li><li><strong>Laser-cut the MDF parts</strong> (mount plate) from 3 mm MDF using the footprint on the top orthographic view; add 4 × M3 clearance holes for the UGOT mount.</li><li><strong>De-burr and sand</strong> every printed part (320 grit); pay attention to pivot holes and sensor windows so nothing binds or blocks a lens.</li><li><strong>Fit the sensor:</strong> Fix the scan camera above the hopper exit so each item passes through its view, and add a matte background so the camera is not confused by the room.</li><li><strong>Assemble the mechanism</strong> following the numbered exploded view and BOM: fasteners finger-tight first, then check every moving part swings freely.</li><li><strong>Wire and test:</strong> connect the kit sensor and servo to the UGOT controller; run a short program to confirm each reading and movement.</li><li><strong>Mount to UGOT:</strong> bolt the mount plate to the chassis with the kit's M3 screws (Customer spec 3.1) and confirm the wheels still clear.</li><li><strong>Function-test</strong> against specs 7.1 and 7.2: Sorts items into <strong>3 bins</strong> with at least <strong>90%</strong> accuracy at <strong>one item every 5 seconds</strong>. Record results in your portfolio.</li><li><strong>Finish:</strong> spray or vinyl-wrap in the colour scheme from specification 1.1, then re-test fit after finishing.</li></ol></div></section>
+
+<section id="quiz"><h2>Quiz — Smart Sorting</h2><p class="sub">Kahoot-style, timed, auto-marked. Your score is saved once you log in above.</p>
+<div class="quiz-card" id="quizCard">
+<div class="quiz-start" id="quizStart"><h3 style="margin-top:0;">🏁 Ready to play?</h3><p style="color:var(--muted);">10 questions · 15 seconds each · lesson content + Criterion B skills.</p><button onclick="startQuiz()">Start Quiz</button></div>
+<div id="quizPlay" style="display:none;"><div class="quiz-head"><div class="qnum" id="qnum" style="color:#e8e8ff;">QUESTION 1</div><h3 class="qtext" id="qtext" style="color:#fff;">...</h3><div class="timer-wrap"><div class="timer-bar" id="timerBar"></div></div></div>
+<div class="quiz-body"><div class="opt-grid" id="optGrid"></div></div>
+<div class="quiz-foot"><span>Score: <span class="score-pill" id="scorePill">0</span></span><span id="feedbackMsg"></span></div></div>
+<div class="quiz-result" id="quizResult" style="display:none;"><h3 style="margin-top:0;">🎉 Quiz complete!</h3><p style="font-size:1.4rem;font-weight:800;color:var(--navy);" id="finalScore">0 / 10</p><p id="submitStatus" class="save-status"></p><button onclick="startQuiz()">Play again</button><div class="lb-table" id="leaderboard"></div></div>
+</div></section>
+
+<section><h2>Reflection prompts</h2><div class="card"><ul>
+<li>Which ACCESSFM category was hardest to satisfy with all three of <em>your</em> ideas, and why?</li>
+<li>How did sensor range, reach or print time change once you saw the dimensioned drawings?</li>
+<li>Where might your chosen design still fail Safety in real use, and how would you test for it?</li></ul></div></section>
+
+<div class="pager"><a href="topic-10.html">← Topic 10: Smart Recognition</a>
+<a href="topic-13.html">Topic 13: Safe Driving →</a></div>
+</div>
+<aside class="ref-side"><img src="../img/ugot_models_reference.png" alt="Stock UGOT builds"><div class="cap">Stock UGOT builds. Your design bolts onto any of these.</div>
+<img src="../img/t12_integration.png" alt="This lesson's design on the chassis"><div class="cap">This lesson's chosen design on the chassis</div></aside>
+</div></main>
+<footer><p>AIA Grade 10 Digital Design &amp; IB MYP Computer Science · UGOT AI Robotics: Designing Autonomous Vehicles for Safer Communities</p>
+<p>Models are student-style exemplars. Sensor ranges are design targets: always verify against the UGOT datasheet.</p></footer>
+<script src="../assets/config.js"></script>
+<script>window.LESSON = { name: "Topic 12 - Smart Sorting", quiz: [{"q": "What does a servo gate do in a sorter?", "opts": ["Swings to send an item down the right chute", "Measures sound", "Heats the item", "Colours the bin"], "correct": 0}, {"q": "Why use gravity chutes?", "opts": ["They add colour", "They need no extra motors", "They stop sorting", "They make noise"], "correct": 1}, {"q": "Which sorter reads a barcode?", "opts": ["Revolver-Bay", "Scanner-Arch", "Chute-Sorter", "Belt-Lift"], "correct": 0}, {"q": "Accuracy of 90% means\u2026", "opts": ["1 of 10 is right", "9 of 10 items go to the right bin", "All are wrong", "It is always fast"], "correct": 1}, {"q": "Colour-coded bins help users because\u2026", "opts": ["They look the same", "They block the camera", "They hide errors", "They show where each type goes"], "correct": 3}, {"q": "Which ACCESSFM letter covers whether a product could hurt someone?", "opts": ["Material", "Safety", "Size", "Cost"], "correct": 1}, {"q": "How many different design ideas does MYP Criterion B (B2) need at minimum?", "opts": ["1", "5", "3", "2"], "correct": 2}, {"q": "In B3 (Chosen Design), what must you do before justifying your choice?", "opts": ["Compare only cost", "Ask a friend", "Evaluate every idea against every success criterion", "Pick your favourite"], "correct": 2}, {"q": "What does an exploded view show in B4?", "opts": ["The product on fire", "A close-up of one part", "All parts separated to show assembly order", "The product's weight"], "correct": 2}, {"q": "Which three views are on the orthographic sheet?", "opts": ["Front, back and bottom", "Top only, three times", "Left, right and back", "Front, top and right side"], "correct": 3}] };</script>
+<script src="../assets/site.js"></script>
+</body></html>
