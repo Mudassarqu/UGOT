@@ -65,6 +65,7 @@ function showQuestion() {
   document.getElementById("qtext").textContent = item.q;
   document.getElementById("scorePill").textContent = quizState.score;
   document.getElementById("feedbackMsg").textContent = "";
+  const oldEx = document.getElementById("explainBox"); if (oldEx) oldEx.remove();
   const grid = document.getElementById("optGrid"); grid.innerHTML = "";
   item.opts.forEach((opt, oi) => {
     const b = document.createElement("button"); b.className = "opt c" + oi; b.textContent = opt;
@@ -87,7 +88,14 @@ function answerQuestion(choice) {
   if (choice === item.correct) { quizState.score++; fb.textContent = "✅ Correct!"; }
   else fb.textContent = choice === -1 ? "⏱️ Time's up!" : "❌ Not quite.";
   document.getElementById("scorePill").textContent = quizState.score;
-  setTimeout(() => { quizState.idx++; quizState.idx < QUIZ_QUESTIONS.length ? showQuestion() : finishQuiz(); }, 1200);
+  const advance = () => { quizState.idx++; quizState.idx < QUIZ_QUESTIONS.length ? showQuestion() : finishQuiz(); };
+  if (item.why) {
+    const ok = choice === item.correct, box = document.createElement("div"); box.id = "explainBox";
+    box.style.cssText = "margin-top:16px;padding:14px 16px;border-radius:10px;font-size:.95rem;line-height:1.5;" + (ok ? "background:#effaf3;border:1px solid #9bd8b4" : "background:#fff4f0;border:1px solid #f1b7a4");
+    box.innerHTML = "<strong>" + (ok ? "✅ Why this is right" : "💡 The right answer: " + escapeHtml(item.opts[item.correct])) + "</strong><br>" + escapeHtml(item.why) + '<div style="margin-top:10px;"><button id="nextQ" style="background:#0f2a43;color:#fff;border:none;border-radius:7px;padding:8px 18px;font:inherit;font-weight:700;cursor:pointer;">' + (quizState.idx + 1 < QUIZ_QUESTIONS.length ? "Next question →" : "See my score →") + "</button></div>";
+    document.getElementById("optGrid").after(box); document.getElementById("nextQ").onclick = advance; return;
+  }
+  setTimeout(advance, 1200);
 }
 function finishQuiz() {
   document.getElementById("quizPlay").style.display = "none";

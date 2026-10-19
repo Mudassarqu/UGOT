@@ -146,3 +146,4 @@
 .placeholder{text-align:center;padding:50px 20px;}
 .placeholder .big{font-size:3rem;}
 .mini-gallery{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:14px;}
+nav.toc a.hot{color:#c4491b}
