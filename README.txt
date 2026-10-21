@@ -1,0 +1,1 @@
+Upload the contents of this folder into the root of the UGOT GitHub repository (it adds criteria-a-02.html ... criteria-a-15.html, replaces criteria-a.html, and adds img/ca/ and docs/ca/). No other site files change.
