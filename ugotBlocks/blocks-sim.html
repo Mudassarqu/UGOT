@@ -1,0 +1,56 @@
+<!DOCTYPE html><html lang="en"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Block Simulator | AIA UGOT</title><link rel="stylesheet" href="sim/sim.css">
+<link rel="stylesheet" href="assets/site.css"><link rel="stylesheet" href="sim/sim.css">
+<style>.topbar{margin:0}.tsel{display:flex;flex-wrap:wrap;gap:6px;max-width:1320px;margin:12px auto 0;padding:0 16px}.tsel a{background:var(--chip);color:var(--ink);text-decoration:none;border-radius:99px;padding:5px 12px;font-size:.84rem;font-weight:700}.tsel a.on{background:var(--accent);color:#fff}
+.loginbar{max-width:1320px;margin:10px auto 0}#blockly{height:600px;border:1px solid var(--line);border-radius:8px;overflow:hidden;background:#f7f9fc}
+.pyout{margin:0;padding:12px;background:var(--code-bg);color:var(--code-ink);border-radius:8px;font:12.5px/1.5 ui-monospace,Menlo,Consolas,monospace;white-space:pre;overflow:auto;max-height:340px;min-height:80px}
+.hint{font-size:.85rem;color:var(--muted);margin:6px 0 0}
+.blocklist{width:100%;border-collapse:collapse;font-size:.88rem}.blocklist td{border-top:1px solid var(--line);padding:6px 8px;vertical-align:top}
+.bnav{background:#0f2a43;display:flex;gap:4px;flex-wrap:wrap;padding:8px 12px;align-items:center}.bnav a{color:#cfe0f0;text-decoration:none;padding:6px 12px;border-radius:7px;font-size:.92rem;font-weight:600}.bnav a.brand{color:#fff;font-weight:800;margin-right:10px}.bnav a.on{background:#f26a21;color:#fff}
+</style></head><body>
+<div class="bnav"><a class="brand" href="index.html">🤖 AIA · UGOT Blocks</a><a href="tutorials-blocks.html">Tutorials</a><a href="playground-blocks.html">Playground</a><a class="on" href="simulators-blocks.html">Simulators</a></div>
+<div class="top"><div class="in"><div><span class="tag">MYP Design · Criterion C · Block coding</span><h1 id="title">Virtual UGOT</h1></div><p id="tagline"></p></div></div>
+<div class="tsel" id="tsel"></div>
+<div class="loginbar" id="loginbar"><span>👋 Enter your name and class to save simulator results to the class Google Sheet:</span>
+  <input id="loginName" type="text" placeholder="Your name" autocomplete="off"><input id="loginClass" type="text" placeholder="Class (e.g. 10B)" autocomplete="off"><button onclick="doLogin()">Start / Log in</button></div>
+<main>
+<div class="col">
+ <section class="panel mission"><h2>Mission (from the Criterion B brief) <span class="links" id="links"></span></h2><div id="brief"></div></section>
+ <section class="panel"><h2>Test set-up</h2><div class="ctrl" id="controls" style="margin-top:0;flex-direction:column;align-items:flex-start"></div>
+  <p class="note" style="margin:8px 0 0">Tip: drag the objects on the map to move them, then run again.</p></section>
+ <section class="panel"><h2>Your blocks</h2>
+  <div class="row" style="margin-bottom:8px"><label for="example" class="note">Load:</label><select id="example"></select><span class="status" id="pystatus">Your blocks save in this browser as you work.</span></div>
+  <div id="blockly" aria-label="Block coding workspace"></div>
+  <div style="display:none"><pre id="gutter"></pre><textarea id="code"></textarea></div>
+  <div class="row" style="margin-top:10px"><button class="btn run" id="runBtn">▶ Transfer to virtual UGOT and run</button><button class="btn alt" id="replBtn" style="display:none">Run again</button><button class="btn alt" id="resetBtn">Reset</button><button class="btn alt" id="saveBtn">Save blocks (file)</button><button class="btn alt" id="openBtn">Open file</button><input type="file" id="openFile" accept=".xml,.ugotblocks" hidden></div>
+  <p class="hint">Loading an example replaces your blocks. Press Ctrl+Z to bring yours back, or save a file first. Every run starts fresh, with all variables reset.</p></section>
+ <section class="panel"><h2>The same program in Python</h2><pre class="pyout" id="pyout" aria-label="Python version of your blocks"></pre>
+  <div class="row" style="margin-top:8px"><button class="btn alt" id="copyPy">Copy Python</button><span class="status" id="pyStatus"></span></div>
+  <p class="hint">Each block becomes a line of code with the same function names as your Criterion C page.</p></section>
+ <section class="panel"><h2>Blocks available</h2><details open><summary>Same actions as the Python functions</summary><div class="scroll"><table class="blocklist" id="apiTable"></table></div>
+  <p class="note">Find them in the coloured categories on the left of the workspace. Look up the real UGOT names before you code on the robot.</p></details></section>
+</div>
+<div class="col">
+ <section class="panel"><h2>Arena <span id="liveTag"></span></h2>
+  <canvas id="arena" width="900" height="600" aria-label="Top-down view of the arena with the UGOT robot"></canvas>
+  <div class="hud" id="hud"></div>
+  <div class="row" style="margin-top:12px"><button class="btn alt" id="playBtn" disabled>⏯ Play / pause</button>
+   <label class="note" for="speedSel">Speed</label><select id="speedSel"><option value="0.5">0.5×</option><option value="1" selected>1×</option><option value="2">2×</option><option value="4">4×</option></select>
+   <button class="btn alt" id="soundBtn" aria-pressed="true">🔊 Sound on</button><label class="note" for="vol">Volume</label><input id="vol" type="range" min="0" max="100" value="60" style="width:90px"><label class="note"><input type="checkbox" id="voice" checked> Voice</label>
+   <input id="scrub" type="range" min="0" max="0" value="0" step="1" style="flex:1 1 100%;min-width:140px" aria-label="Playback position"></div></section>
+ <section class="panel"><h2>Live drive: control the robot yourself</h2>
+  <div class="row"><button class="btn alt" id="liveBtn">🎮 Live drive</button><label class="note">Speed <input id="liveSpeed" type="range" min="10" max="100" value="40" style="width:110px"></label><span class="note" id="keyhelp"></span></div>
+  <div id="livePanel" style="display:none;margin-top:10px"><div class="row" style="align-items:flex-start;gap:18px"><div class="pad" id="pad"><button data-k="q">⟲</button><button data-k="w">▲</button><button data-k="e">⟳</button><button data-k="a">◀</button><button data-k="s">▼</button><button data-k="d">▶</button></div><div class="row" id="liveButtons"></div></div>
+  <p class="note">Live drive uses the same robot physics as your program. Try it first to feel how the robot behaves, then write code that does it for you.</p></div></section>
+ <div class="twin">
+ <section class="panel"><h2 id="insetTitle">Close-up</h2><canvas id="inset" width="600" height="400"></canvas></section>
+ <section class="panel"><h2>Sensor graph</h2><canvas id="chart" width="600" height="400"></canvas></section></div>
+ <section class="panel"><h2>Console</h2><div class="console" id="console" role="log"></div></section>
+ <section class="panel"><h2>Test results (copy into your C3 log)</h2><div class="score" id="score"></div><ul class="checks" id="checks"></ul>
+  <div class="row" style="margin-top:10px"><button class="btn alt" id="copyBtn" disabled>Copy test evidence</button><span class="status" id="copyStatus"></span></div></section>
+</div></main>
+<script>window.LESSON={name:"Block Simulator"};</script>
+<script src="assets/config.js"></script><script src="assets/site.js"></script><script src="sim/engine.js"></script>
+<script src="blockly/blockly_compressed.js"></script><script src="blockly/blocks_compressed.js"></script><script src="blockly/javascript_compressed.js"></script><script src="blockly/python_compressed.js"></script><script src="blockly/msg/en.js"></script>
+<script src="ugot-blocks.js"></script><script src="ugot-api-blocks.js"></script><script src="examples-blocks.js"></script>
+<script src="blocks-sim.js"></script></body></html>

@@ -1,0 +1,52 @@
+<!DOCTYPE html><html lang="en"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Block Playground | AIA UGOT</title><link rel="stylesheet" href="lab.css"></head><body>
+<div class="topbar"><a class="brand" href="index.html">🤖 AIA · UGOT Blocks</a><a href="index.html">Home</a><a href="tutorials-blocks.html">Tutorials</a><a class="on" href="playground-blocks.html">Playground</a><a href="simulators-blocks.html">Simulators</a></div>
+<div class="top"><div class="in"><span class="tag">Practise · Block coding</span><h1>Block Playground</h1><p>15 short challenges. Build the blocks, press <b>Run and check</b>, and the pretend UGOT tells you what passed. No marks, no login: practise as often as you like.</p></div></div>
+<div class="wrap"><div class="cols">
+ <nav class="side" id="side" aria-label="Challenges"></nav>
+ <div>
+  <section class="panel"><span class="note" id="lvlName"></span><h2 id="title" style="font-size:1.3rem;margin-top:2px"></h2><div id="goal"></div></section>
+  <section class="panel"><div class="ws" id="ws"></div>
+   <div class="row" style="margin-top:10px"><button class="btn" id="runBtn">▶ Run and check</button><button class="btn alt" id="hintBtn">💡 Hint</button><button class="btn alt" id="solBtn">Show a solution</button><button class="btn alt" id="resetBtn">Start again</button><span class="status" id="st"></span></div>
+   <p class="hint" id="hintTxt"></p></section>
+  <section class="panel"><h2>Results</h2><ul class="checks" id="checks"><li><span class="ic">·</span><div>Press Run and check.</div></li></ul>
+   <h2 style="margin-top:12px">Robot screen</h2><pre class="outbox" id="out"></pre></section>
+  <section class="panel"><details><summary><b>See your blocks as Python</b></summary><pre class="pyout" id="py" style="margin-top:8px"></pre></details></section>
+ </div></div></div>
+<script src="blockly/blockly_compressed.js"></script><script src="blockly/blocks_compressed.js"></script><script src="blockly/javascript_compressed.js"></script><script src="blockly/python_compressed.js"></script><script src="blockly/msg/en.js"></script>
+<script src="ugot-blocks.js"></script><script src="ugot-lab.js"></script><script src="challenges-blocks.js"></script>
+<script>
+const $=id=>document.getElementById(id),CH=BLOCK_CHALLENGES;let cur=0,hint=0,ws;
+let done={};try{done=JSON.parse(localStorage.getItem('ugot_blocks_done')||'{}')}catch(e){}
+const store=()=>{try{localStorage.setItem('ugot_blocks_done',JSON.stringify(done))}catch(e){}};
+const wkey=c=>'ugot_blocks_ws_'+c.id;
+function side(){let h='<div class="note" style="padding:4px 8px"><b>'+Object.keys(done).length+' of '+CH.length+'</b> done<div class="bar"><i style="width:'+(100*Object.keys(done).length/CH.length)+'%"></i></div></div>';
+ BLOCK_LEVELS.forEach(l=>{h+='<div class="lvl">'+l.name+'</div>';CH.forEach((c,i)=>{if(c.level===l.id)h+='<button class="item'+(i===cur?' on':'')+'" data-i="'+i+'">'+c.title+(done[c.id]?'<span class="d">✔</span>':'')+'</button>'})});
+ $('side').innerHTML=h;$('side').querySelectorAll('.item').forEach(b=>b.onclick=()=>open(+b.dataset.i))}
+function py(){$('py').textContent=Lab.py(ws)}
+function saveWs(){try{localStorage.setItem(wkey(CH[cur]),Blockly.Xml.domToText(Blockly.Xml.workspaceToDom(ws)))}catch(e){}}
+function open(i){cur=i;hint=0;const c=CH[i],lv=BLOCK_LEVELS.find(l=>l.id===c.level);
+ $('lvlName').textContent=lv.name;$('title').textContent=c.title;$('goal').innerHTML='<p style="margin:0">'+c.goal+'</p>';$('hintTxt').textContent='';$('st').textContent='';
+ $('checks').innerHTML='<li><span class="ic">·</span><div>Press Run and check.</div></li>';$('out').textContent='';
+ let saved=null;try{saved=localStorage.getItem(wkey(c))}catch(e){}
+ try{Lab.loadXml(ws,saved||c.start)}catch(e){Lab.loadXml(ws,c.start)}
+ py();side();location.hash=c.id}
+function run(){const c=CH[cur];let all=[],outText=[];
+ c.runs.forEach((cfg,k)=>{const r=Lab.run(ws,cfg);
+  if(r.err){all.push({t:k?'Run '+(k+1):'Your program',ok:false,d:r.err});outText.push((cfg.label?'— '+cfg.label+' —\n':'')+'Error: '+r.err);return}
+  if(cfg.label)outText.push('— '+cfg.label+' —');outText.push(r.out.join('\n')||'(nothing shown)');
+  all.push(...c.test(r,k))});
+ const ok=all.length&&all.every(x=>x.ok);
+ $('checks').innerHTML=all.map(x=>'<li class="'+(x.ok?'ok':'no')+'"><span class="ic">'+(x.ok?'✔':'✘')+'</span><div><b>'+x.t+'</b>'+(x.d?'<small>'+x.d+'</small>':'')+'</div></li>').join('');
+ $('out').textContent=outText.join('\n');
+ if(ok){done[c.id]=1;store();$('st').textContent='✔ Challenge complete. Try the next one.';side()}else $('st').textContent='Not yet. Read the results, adjust your blocks and run again.'}
+function init(){
+ ws=Lab.inject('ws',{scale:.8});
+ ws.addChangeListener(e=>{if(e.isUiEvent)return;py();saveWs()});
+ $('runBtn').onclick=run;
+ $('hintBtn').onclick=()=>{const h=CH[cur].hints;$('hintTxt').innerHTML='💡 '+h.slice(0,hint+1).join('<br>💡 ');hint=Math.min(hint+1,h.length-1)};
+ $('solBtn').onclick=()=>{Lab.loadXml(ws,CH[cur].solution);py();$('st').textContent='Solution loaded. Press Ctrl+Z to bring your blocks back.'};
+ $('resetBtn').onclick=()=>{try{localStorage.removeItem(wkey(CH[cur]))}catch(e){}Lab.loadXml(ws,CH[cur].start);py()};
+ const h=location.hash.slice(1),i=CH.findIndex(c=>c.id===h);open(i>=0?i:0)}
+init();
+</script></body></html>

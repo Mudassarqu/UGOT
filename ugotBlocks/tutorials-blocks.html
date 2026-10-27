@@ -1,0 +1,45 @@
+<!DOCTYPE html><html lang="en"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Block Tutorials | AIA UGOT</title><link rel="stylesheet" href="lab.css"></head><body>
+<div class="topbar"><a class="brand" href="index.html">🤖 AIA · UGOT Blocks</a><a href="index.html">Home</a><a class="on" href="tutorials-blocks.html">Tutorials</a><a href="playground-blocks.html">Playground</a><a href="simulators-blocks.html">Simulators</a></div>
+<div class="top"><div class="in"><span class="tag">Learn · Block coding</span><h1 id="h1">Block Tutorials</h1><p id="sub">8 short lessons. Read the idea, run the blocks, change them and run again.</p></div></div>
+<div class="wrap" id="list"><div class="grid" id="grid"></div></div>
+<div class="wrap" id="view" style="display:none">
+ <div class="row" style="margin-bottom:10px"><a class="btn alt" href="tutorials-blocks.html">← All lessons</a><span class="note" id="crumb"></span></div>
+ <div class="cols" style="grid-template-columns:minmax(0,5fr) minmax(0,7fr)">
+  <section class="panel" style="align-self:start"><div class="sl" id="dots"></div><h2 id="sh" style="font-size:1.25rem"></h2><div class="say" id="say"></div><ul class="bul" id="bul"></ul>
+   <div id="sensorBox" class="panel" style="background:var(--bg);display:none"><label class="note" for="tofIn"><b>Pretend distance</b> in front of the robot: <b id="tofV">500</b> mm</label><br><input type="range" id="tofIn" min="0" max="2000" step="10" value="500" style="width:100%"></div>
+   <p class="note" id="tipTxt"></p>
+   <div class="row"><button class="btn alt" id="prev">← Back</button><button class="btn" id="next">Next →</button></div>
+   <div id="linksBox" style="display:none;margin-top:12px" class="row"><a class="btn" href="blocks-sim.html?topic=lab">Open the Robot Sandbox</a><a class="btn alt" href="simulators-blocks.html">All block simulators</a><a class="btn alt" href="playground-blocks.html">Practise in the Playground</a></div></section>
+  <section class="panel"><div class="ws" id="ws" style="height:400px"></div>
+   <div class="row" style="margin-top:10px"><button class="btn" id="runBtn">▶ Run</button><button class="btn alt" id="resetBtn">Reset blocks</button><span class="status" id="st"></span></div>
+   <h2 style="margin-top:12px">Robot screen</h2><pre class="outbox" id="out"></pre>
+   <details style="margin-top:10px"><summary><b>Python version</b></summary><pre class="pyout" id="py" style="margin-top:8px"></pre></details></section>
+ </div></div>
+<script src="blockly/blockly_compressed.js"></script><script src="blockly/blocks_compressed.js"></script><script src="blockly/javascript_compressed.js"></script><script src="blockly/python_compressed.js"></script><script src="blockly/msg/en.js"></script>
+<script src="ugot-blocks.js"></script><script src="ugot-lab.js"></script><script src="tutorials-data-blocks.js"></script>
+<script>
+const $=id=>document.getElementById(id),T=BLOCK_TUTORIALS;let seen={};try{seen=JSON.parse(localStorage.getItem('ugot_blocktut_done')||'{}')}catch(e){}
+let ws=null,lesson=null,k=0;
+$('grid').innerHTML=T.map(t=>'<a class="card" href="?id='+t.id+'"><div class="hd"><span>'+t.emoji+'</span><b>LESSON '+t.id+'</b></div><div class="bd"><h3>'+t.title+'</h3><p>'+t.goal+'</p></div><div class="ft"><span>⏱ '+t.mins+' min</span><span>·</span><span>'+t.slides.length+' parts</span>'+(seen[t.id]?'<span class="done">✔ done</span>':'')+'</div></a>').join('');
+function py(){$('py').textContent=Lab.py(ws)}
+function slide(i){k=i;const s=lesson.slides[i];
+ $('dots').innerHTML=lesson.slides.map((_,j)=>'<button class="'+(j===i?'on':'')+'" data-j="'+j+'">'+(j+1)+'</button>').join('');$('dots').querySelectorAll('button').forEach(b=>b.onclick=()=>slide(+b.dataset.j));
+ $('sh').textContent=s.h;$('say').textContent=s.say;$('bul').innerHTML=(s.bullets||[]).map(b=>'<li>'+b+'</li>').join('');
+ $('sensorBox').style.display=s.sensor?'block':'none';if(s.sensor){$('tofIn').value=s.tof||500;$('tofV').textContent=$('tofIn').value}
+ $('tipTxt').textContent=s.tip||(s.wall?'The pretend wall starts 1000 mm away and moves 200 mm closer each second.':s.obj?'The pretend object starts 400 mm away and moves 30 mm closer each second.':s.seq?'The pretend sensor gives these readings in order: '+s.seq.join(', ')+' mm.':'');
+ $('linksBox').style.display=s.links?'flex':'none';$('prev').disabled=i===0;$('next').textContent=i===lesson.slides.length-1?'Finish ✔':'Next →';
+ Lab.loadXml(ws,s.xml);py();$('out').textContent='';$('st').textContent=''}
+function run(){const s=lesson.slides[k];let tof=Number($('tofIn').value);
+ if(s.wall)tof=t=>1000-200*t;else if(s.obj)tof=t=>400-30*t;else if(s.seq)tof=s.seq;else if(!s.sensor)tof=500;
+ const r=Lab.run(ws,{tof});$('out').textContent=r.err?'Problem: '+r.err:(r.out.join('\n')||'(Nothing was shown. Add a print block.)');$('st').textContent=r.err?'':'Done in '+r.t.toFixed(1)+' s of robot time.'}
+function start(id){lesson=T.find(t=>t.id===id);if(!lesson)return;$('list').style.display='none';$('view').style.display='block';
+ $('h1').textContent='Lesson '+lesson.id+' · '+lesson.title;$('sub').textContent=lesson.goal;$('crumb').textContent='';
+ ws=Lab.inject('ws',{scale:.7});ws.addChangeListener(e=>{if(!e.isUiEvent)py()});
+ $('runBtn').onclick=run;$('resetBtn').onclick=()=>slide(k);
+ $('tofIn').oninput=()=>{$('tofV').textContent=$('tofIn').value};
+ $('prev').onclick=()=>slide(Math.max(0,k-1));
+ $('next').onclick=()=>{if(k<lesson.slides.length-1)slide(k+1);else{seen[lesson.id]=1;try{localStorage.setItem('ugot_blocktut_done',JSON.stringify(seen))}catch(e){}location.href='tutorials-blocks.html'}};
+ slide(0)}
+const id=new URLSearchParams(location.search).get('id');if(id)start(id);
+</script></body></html>

@@ -1,0 +1,61 @@
+UGOT BLOCK CODING: UPLOAD GUIDE
+================================
+
+SHORT ANSWER
+- Nothing in your existing site needs to be changed, renamed or overwritten.
+- You add ONE new folder called  ugotBlocks  next to your existing  ugotC  folder. Every file in it is new.
+- Do not rename anything inside ugotBlocks.
+
+STEP 0. TEST ON YOUR COMPUTER FIRST (no upload needed)
+1. Unzip the file. Open the ugotBlocks folder.
+2. Double-click index.html. Everything works offline.
+   (Links to your Criterion B and C lesson pages will only work after upload, because they point to ../ugotC/.)
+
+STEP 1. UPLOAD ON GITHUB (website, no software)
+1. Open your GitHub repository (the one that holds the ugotC folder).
+2. Make sure you are at the top level of the repository, where you can see ugotC. Do not go inside ugotC.
+3. Click  Add file > Upload files.
+4. Drag the whole ugotBlocks folder from your computer into the browser window.
+   Wait until every file has finished uploading (about 90 files, including the blockly folder).
+5. At the bottom, type a message such as  Add block coding folder  and click  Commit changes.
+6. Wait 1 to 2 minutes for GitHub Pages to update.
+
+   If GitHub says too many files for one upload: upload in two goes. First everything except the blockly folder,
+   then upload the blockly folder. Do not change any names.
+
+STEP 2. OPEN IT
+Your students use the same address as your current site, with  ugotBlocks/  instead of  ugotC/  :
+   https://YOUR-SITE/ugotBlocks/index.html
+Send students that link. It has Tutorials, Playground and Simulators.
+
+WHAT IS INSIDE ugotBlocks  (all new files)
+index.html                hub
+tutorials-blocks.html     8 block lessons
+playground-blocks.html    15 practice challenges
+simulators-blocks.html    list of all block simulators
+blocks-sim.html           block simulator for Topics 02, 03, 05 to 10, 12 to 15 and the Robot Sandbox (opened as blocks-sim.html?topic=07)
+blocks-04.html            Topic 04 Joint Rescue
+lab-blocks.html           Gripper Sandbox
+sim/                      copies of the simulator engine and the topic files (so this folder works on its own)
+assets/                   copy of config.js (your Google Sheet link), site.js and site.css
+blockly/                  the block library (no internet needed)
+*.js, lab.css             shared code for the blocks
+
+GOOGLE SHEET
+The block simulators use the same sign-in box and the same Google Sheet link as your Python simulators.
+Results arrive in the same sheet. The Quiz column says  Block Simulator · Topic 07 ...  so you can tell them apart.
+You do NOT need to change your Apps Script.
+Tutorial ticks, Playground ticks and saved blocks stay in each student's own browser.
+
+OPTIONAL (only if you want students to find it from the old site)
+Nothing breaks if you skip this. To add a link, edit ONE file you choose, for example ugotC/index.html on GitHub
+(pencil icon), and add a line like this where you want the link to appear:
+   <a href="../ugotBlocks/index.html">Block coding</a>
+Save with  Commit changes. This is the only change to an existing file, and only if you decide to do it.
+
+IF YOU LATER CHANGE THE PYTHON SIMULATORS
+The block simulators use their own copy of the engine in ugotBlocks/sim. A change in ugotC/sim will not appear in
+the block version until the new file is copied into ugotBlocks/sim. Ask me and I will redo the copy.
+
+TO REMOVE EVERYTHING
+Delete the ugotBlocks folder. Your original site is not affected.
